@@ -46,11 +46,11 @@ class MenuServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind('harimayco-menu', function () {
+        $this->app->bind('directoryxx-menu', function () {
             return new WMenu();
         });
 
-        $this->app->make('Harimayco\Menu\Controllers\MenuController');
+        $this->app->make('Directoryxx\Menu\Controllers\MenuController');
         $this->mergeConfigFrom(
             __DIR__ . '/../config/menu.php',
             'menu'
