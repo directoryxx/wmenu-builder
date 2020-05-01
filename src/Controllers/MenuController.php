@@ -1,13 +1,13 @@
 <?php
 
-namespace Harimayco\Menu\Controllers;
+namespace Directoryxx\Menu\Controllers;
 
-use Harimayco\Menu\Facades\Menu;
+use Directoryxx\Menu\Facades\Menu;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use Harimayco\Menu\Models\Menus;
-use Harimayco\Menu\Models\MenuItems;
+use Directoryxx\Menu\Models\Menus;
+use Directoryxx\Menu\Models\MenuItems;
 
 class MenuController extends Controller
 {

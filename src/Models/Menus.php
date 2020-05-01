@@ -1,6 +1,6 @@
 <?php
 
-namespace Harimayco\Menu\Models;
+namespace Directoryxx\Menu\Models;
 
 use Illuminate\Database\Eloquent\Model;
 

@@ -1,5 +1,5 @@
 <?php 
-namespace Harimayco\Menu\Facades;
+namespace Directoryxx\Menu\Facades;
 use Illuminate\Support\Facades\Facade;
 
 class Menu extends Facade {

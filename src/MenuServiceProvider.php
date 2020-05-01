@@ -1,6 +1,6 @@
 <?php
 
-namespace Harimayco\Menu;
+namespace Directoryxx\Menu;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Foundation\AliasLoader;
