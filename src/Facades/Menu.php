@@ -9,6 +9,6 @@ class Menu extends Facade {
      */
     protected static function getFacadeAccessor()
     {
-        return 'harimayco-menu';
+        return 'directoryxx-menu';
     }
 }
