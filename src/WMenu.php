@@ -15,6 +15,7 @@ class WMenu
     {
         $menu = new Menus();
         $menuitems = new MenuItems();
+        $page = new Page();
         $menulist = $menu->select(['id', 'name'])->get();
         $menulist = $menulist->pluck('name', 'id')->prepend('Select menu', 0)->all();
 
@@ -26,10 +27,12 @@ class WMenu
 
             $menu = Menus::find(request()->input("menu"));
             $menus = $menuitems->getall(request()->input("menu"));
-            $pages = Page::all();
+            $page = $page->where('publication_status',1)->get();
             //dd($pages);
+        
 
-            $data = ['menus' => $menus, 'indmenu' => $menu, 'menulist' => $menulist,'pages',$pages];
+            $data = ['menus' => $menus, 'indmenu' => $menu, 'menulist' => $menulist,'pagemenu' => $page];
+            //dd($data);
             if( config('menu.use_roles')) {
                 $data['roles'] = DB::table(config('menu.roles_table'))->select([config('menu.roles_pk'),config('menu.roles_title_field')])->get();
                 $data['role_pk'] = config('menu.roles_pk');
