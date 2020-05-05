@@ -6,6 +6,7 @@ use App\Http\Requests;
 use Directoryxx\Menu\Models\Menus;
 use Directoryxx\Menu\Models\MenuItems;
 use Illuminate\Support\Facades\DB;
+use App\Models\Page;
 
 class WMenu
 {
