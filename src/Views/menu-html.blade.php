@@ -118,10 +118,10 @@ $currentUrl = url()->current();
 																	
                                                                     <p class="button-controls">
 
-                                                                        <a href="#" onclick="addcustommenu()"
-                                                                            class="button-secondary submit-add-to-menu right">Add
+                                                                        <a href="#" onclick="addcustommenu1()"
+                                                                            class="button-secondary submit-add-to-menu1 right">Add
                                                                             menu item</a>
-                                                                        <span class="spinner" id="spincustomu"></span>
+                                                                        <span class="spinner" id="spincustomu1"></span>
                                                                     </p>
                                                                 </form>
                                                             </div>

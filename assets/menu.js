@@ -60,6 +60,28 @@ function addcustommenu() {
   });
 }
 
+function addcustommenu1() {
+  $('#spincustomu1').show();
+
+  $.ajax({
+    data: {
+      labelmenu: $('#custom-menu-item-name').val(),
+      linkmenu: $('#custom-menu-item-url').val(),
+      rolemenu: $('#custom-menu-item-role').val(),
+      idmenu: $('#idmenu').val()
+    },
+
+    url: addcustommenur,
+    type: 'POST',
+    success: function(response) {
+      window.location.reload();
+    },
+    complete: function() {
+      $('#spincustomu1').hide();
+    }
+  });
+}
+
 function updateitem(id = 0) {
   if (id) {
     var label = $('#idlabelmenu_' + id).val();
