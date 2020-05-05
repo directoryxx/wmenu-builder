@@ -70,7 +70,8 @@ function addcustommenu1() {
 
   $.ajax({
     data: {
-      'pagesmenu[]': 'pagesmenu[]='+pagesmenu.join('&pagesmenu[]=')
+      "pagesadd": pagesmenu.join(),
+      "idmenu": $('#idmenu').val()
     },
 
     url: addcustommenur,
