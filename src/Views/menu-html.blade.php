@@ -336,8 +336,12 @@ $currentUrl = url()->current();
 																@else
 																<div class="menu-item-settings"
 																	id="menu-item-settings-{{$m->id}}">
-																	
-																	<a href="{{url($m->link)}}">{{$m->label}}</a>
+																	{{dd($m->menu)}}
+																	@if($m->menu == 1 )
+																		<a href="{{url("id/".$m->link)}}">{{$m->label}}</a>
+																	@else if ()
+																		<a href="{{url("en/".$m->link)}}">{{$m->label}}</a>
+																	@endif
 
 																	@if(!empty($roles))
 																	<p

@@ -33,11 +33,11 @@ class MenuItems extends Model
 
     public function parent_menu()
     {
-        return $this->belongsTo('Harimayco\Menu\Models\Menus', 'menu');
+        return $this->belongsTo('Directoryxx\Menu\Models\Menus', 'menu');
     }
 
     public function child()
     {
-        return $this->hasMany('Harimayco\Menu\Models\MenuItems', 'parent')->orderBy('sort', 'ASC');
+        return $this->hasMany('Directoryxx\Menu\Models\MenuItems', 'parent')->orderBy('sort', 'ASC');
     }
 }
