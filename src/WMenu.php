@@ -27,6 +27,7 @@ class WMenu
             $menu = Menus::find(request()->input("menu"));
             $menus = $menuitems->getall(request()->input("menu"));
             $pages = Page::all();
+            dd($pages);
 
             $data = ['menus' => $menus, 'indmenu' => $menu, 'menulist' => $menulist,'pages',$pages];
             if( config('menu.use_roles')) {
