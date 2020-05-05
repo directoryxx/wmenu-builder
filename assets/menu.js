@@ -63,12 +63,14 @@ function addcustommenu() {
 function addcustommenu1() {
   $('#spincustomu1').show();
 
+  var pagesmenu = [];
+  $('.pagesmenu:checked').each(function (i, e) {
+      pagesmenu.push($(this).val());
+  });
+
   $.ajax({
     data: {
-      labelmenu: $('#custom-menu-item-name').val(),
-      linkmenu: $('#custom-menu-item-url').val(),
-      rolemenu: $('#custom-menu-item-role').val(),
-      idmenu: $('#idmenu').val()
+      'pagesmenu[]': 'pagesmenu[]='+pagesmenu.join('&pagesmenu[]=')
     },
 
     url: addcustommenur,

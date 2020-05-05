@@ -106,7 +106,7 @@ $currentUrl = url()->current();
 																			@foreach($pagemenu as $page)
 																				<li>
 																					<label class="menu-item-title">
-																						<input class="menu-item-checkbox" type="checkbox" name="pagesadd[]" value="{{$page->id}}">{{$page->page_name}}
+																						<input class="menu-item-checkbox pagesmenu" type="checkbox" name="pagesadd[]" value="{{$page->id}}">{{$page->page_name}}
 																					</label>
 																				</li>
 																			@endforeach
