@@ -93,41 +93,44 @@ $currentUrl = url()->current();
 													</div>
 												</li>
 												<li class="control-section accordion-section  open add-page"
-                                                    id="add-page">
-                                                    <h3 class="accordion-section-title hndle" tabindex="0"> Pages <span
-                                                            class="screen-reader-text">Press return or enter to
-                                                            expand</span></h3>
-                                                    <div class="accordion-section-content ">
-                                                        <div class="inside">
-                                                            <div class="customlinkdiv" id="customlinkdiv">
-                                                                <form>
+													id="add-page">
+													<h3 class="accordion-section-title hndle" tabindex="0"> Pages <span
+															class="screen-reader-text">Press return or enter to
+															expand</span></h3>
+													<div class="accordion-section-content ">
+														<div class="inside">
+															<div class="customlinkdiv" id="customlinkdiv">
+																<form>
 																	<ul style="list-style: none;">
 																		@if(isset($pagemenu))
-																			@foreach($pagemenu as $page)
-																				<li>
-																					<label class="menu-item-title">
-																						<input class="menu-item-checkbox pagesmenu" type="checkbox" name="pagesadd[]" value="{{$page->id}}">{{$page->page_name}}
-																					</label>
-																				</li>
-																			@endforeach
+																		@foreach($pagemenu as $page)
+																		<li>
+																			<label class="menu-item-title">
+																				<input
+																					class="menu-item-checkbox pagesmenu"
+																					type="checkbox" name="pagesadd[]"
+																					value="{{$page->id}}">{{$page->page_name}}
+																			</label>
+																		</li>
+																		@endforeach
 																		@endif
 																	</ul>
-                                                                    
-                                                                    
-                                                                    
-																	
-                                                                    <p class="button-controls">
 
-                                                                        <a href="#" onclick="addcustommenu1()"
-                                                                            class="button-secondary submit-add-to-menu1 right">Add
-                                                                            menu item</a>
-                                                                        <span class="spinner" id="spincustomu1"></span>
-                                                                    </p>
-                                                                </form>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </li>
+
+
+
+																	<p class="button-controls">
+
+																		<a href="#" onclick="addcustommenu1()"
+																			class="button-secondary submit-add-to-menu1 right">Add
+																			menu item</a>
+																		<span class="spinner" id="spincustomu1"></span>
+																	</p>
+																</form>
+															</div>
+														</div>
+													</div>
+												</li>
 
 											</ul>
 										</div>
@@ -228,7 +231,7 @@ $currentUrl = url()->current();
 																			</a> </span>
 																	</dt>
 																</dl>
-
+																@if($m->is_page == null)
 																<div class="menu-item-settings"
 																	id="menu-item-settings-{{$m->id}}">
 																	<input type="hidden" class="edit-menu-item-id"
@@ -330,6 +333,75 @@ $currentUrl = url()->current();
 																	</div>
 
 																</div>
+																@else
+																<div class="menu-item-settings"
+																	id="menu-item-settings-{{$m->id}}">
+																	
+																	<a href="{{url($m->link)}}">{{$m->label}}</a>
+
+																	@if(!empty($roles))
+																	<p
+																		class="field-css-role description description-wide">
+																		<label for="edit-menu-item-role-{{$m->id}}">
+																			Role
+																			<br>
+																			<select id="role_menu_{{$m->id}}"
+																				class="widefat code edit-menu-item-role"
+																				name="role_menu_[{{$m->id}}]">
+																				<option value="0">Select Role</option>
+																				@foreach($roles as $role)
+																				<option @if($role->id == $m->role_id)
+																					selected @endif
+																					value="{{ $role->$role_pk }}">{{ ucwords($role->$role_title_field) }}
+																				</option>
+																				@endforeach
+																			</select>
+																		</label>
+																	</p>
+																	@endif
+
+																	<p
+																		class="field-move hide-if-no-js description description-wide">
+																		<label> <span>Move</span> <a
+																				href="{{ $currentUrl }}"
+																				class="menus-move-up"
+																				style="display: none;">Move up</a> <a
+																				href="{{ $currentUrl }}"
+																				class="menus-move-down"
+																				title="Mover uno abajo"
+																				style="display: inline;">Move Down</a>
+																			<a href="{{ $currentUrl }}"
+																				class="menus-move-left"
+																				style="display: none;"></a> <a
+																				href="{{ $currentUrl }}"
+																				class="menus-move-right"
+																				style="display: none;"></a> <a
+																				href="{{ $currentUrl }}"
+																				class="menus-move-top"
+																				style="display: none;">Top</a> </label>
+																	</p>
+
+																	<div
+																		class="menu-item-actions description-wide submitbox">
+
+																		<a class="item-delete submitdelete deletion"
+																			id="delete-{{$m->id}}"
+																			href="{{ $currentUrl }}?action=delete-menu-item&menu-item={{$m->id}}&_wpnonce=2844002501">Delete</a>
+																		<span class="meta-sep hide-if-no-js"> | </span>
+																		<a class="item-cancel submitcancel hide-if-no-js button-secondary"
+																			id="cancel-{{$m->id}}"
+																			href="{{ $currentUrl }}?edit-menu-item={{$m->id}}&cancel=1424297719#menu-item-settings-{{$m->id}}">Cancel</a>
+																		<span class="meta-sep hide-if-no-js"> | </span>
+																		<a onclick="getmenus()"
+																			class="button button-primary updatemenu"
+																			id="update-{{$m->id}}"
+																			href="javascript:void(0)">Update item</a>
+
+																	</div>
+
+																</div>
+																@endif
+
 																<ul class="menu-item-transport"></ul>
 															</li>
 															@endforeach

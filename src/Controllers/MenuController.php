@@ -80,7 +80,8 @@ class MenuController extends Controller
                 $page = Page::where('id', $d)->first();
                 $menuitem = new MenuItems();
                 $menuitem->label = $page->page_name;
-                $menuitem->link = "/pages".$page->id;
+                $menuitem->is_page = 1;
+                $menuitem->link = "pages/".$page->page_slug;
                 if (config('menu.use_roles')) {
                     $menuitem->role_id = request()->input("rolemenu") ? request()->input("rolemenu")  : 0;
                 }
