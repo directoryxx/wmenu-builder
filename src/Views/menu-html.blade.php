@@ -102,13 +102,15 @@ $currentUrl = url()->current();
                                                             <div class="customlinkdiv" id="customlinkdiv">
                                                                 <form>
 																	<ul style="list-style: none;">
-																		@foreach($pages as $page)
-																			<li>
-																				<label class="menu-item-title">
-																					<input class="menu-item-checkbox" type="checkbox" value="">Option 1
-																				</label>
-																			</li>
-																		@endforeach
+																		@if(isset($pagemenu))
+																			@foreach($pagemenu as $page)
+																				<li>
+																					<label class="menu-item-title">
+																						<input class="menu-item-checkbox" type="checkbox" value="{{$page->id}}">{{$page->page_name}}
+																					</label>
+																				</li>
+																			@endforeach
+																		@endif
 																	</ul>
                                                                     
                                                                     
