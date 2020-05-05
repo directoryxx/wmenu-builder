@@ -6,6 +6,7 @@ use Directoryxx\Menu\Facades\Menu;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Models\Page;
 use Directoryxx\Menu\Models\Menus;
 use Directoryxx\Menu\Models\MenuItems;
 
