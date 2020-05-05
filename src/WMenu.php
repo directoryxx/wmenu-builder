@@ -26,8 +26,9 @@ class WMenu
 
             $menu = Menus::find(request()->input("menu"));
             $menus = $menuitems->getall(request()->input("menu"));
+            $pages = Page::all();
 
-            $data = ['menus' => $menus, 'indmenu' => $menu, 'menulist' => $menulist];
+            $data = ['menus' => $menus, 'indmenu' => $menu, 'menulist' => $menulist,'pages',$pages];
             if( config('menu.use_roles')) {
                 $data['roles'] = DB::table(config('menu.roles_table'))->select([config('menu.roles_pk'),config('menu.roles_title_field')])->get();
                 $data['role_pk'] = config('menu.roles_pk');

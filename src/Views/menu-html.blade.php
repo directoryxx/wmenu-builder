@@ -93,36 +93,39 @@ $currentUrl = url()->current();
 													</div>
 												</li>
 												<li class="control-section accordion-section  open add-page"
-													id="add-page">
-													<h3 class="accordion-section-title hndle" tabindex="0"> Pages <span
-															class="screen-reader-text">Press return or enter to
-															expand</span></h3>
-													<div class="accordion-section-content ">
-														<div class="inside">
-															<div class="customlinkdiv" id="customlinkdiv">
-																<form>
+                                                    id="add-page">
+                                                    <h3 class="accordion-section-title hndle" tabindex="0"> Pages <span
+                                                            class="screen-reader-text">Press return or enter to
+                                                            expand</span></h3>
+                                                    <div class="accordion-section-content ">
+                                                        <div class="inside">
+                                                            <div class="customlinkdiv" id="customlinkdiv">
+                                                                <form>
+																	<ul style="list-style: none;">
+																		@foreach($pages as $page)
+																			<li>
+																				<label class="menu-item-title">
+																					<input class="menu-item-checkbox" type="checkbox" value="">Option 1
+																				</label>
+																			</li>
+																		@endforeach
+																	</ul>
+                                                                    
+                                                                    
+                                                                    
+																	
+                                                                    <p class="button-controls">
 
-																	<div class="radio">
-																		<label><input type="radio" name="optradio"
-																				checked>Option 1</label>
-																	</div>
-																	<div class="radio">
-																		<label><input type="radio"
-																				name="optradio">Option 2</label>
-																	</div>
-
-																	<p class="button-controls">
-
-																		<a href="#" onclick="addcustommenu()"
-																			class="button-secondary submit-add-to-menu right">Add
-																			menu item</a>
-																		<span class="spinner" id="spincustomu"></span>
-																	</p>
-																</form>
-															</div>
-														</div>
-													</div>
-												</li>
+                                                                        <a href="#" onclick="addcustommenu()"
+                                                                            class="button-secondary submit-add-to-menu right">Add
+                                                                            menu item</a>
+                                                                        <span class="spinner" id="spincustomu"></span>
+                                                                    </p>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
 
 											</ul>
 										</div>
