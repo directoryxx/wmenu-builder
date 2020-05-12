@@ -80,15 +80,38 @@ class MenuController extends Controller
             foreach ($pieces as $d) {
                 $page = Page::where('id', $d)->first();
                 $menuitem = new MenuItems();
-                $menuitem->label = $page->page_name;
-                $menuitem->is_page = 1;
-                $menuitem->link = "pages/".$page->page_slug;
-                if (config('menu.use_roles')) {
-                    $menuitem->role_id = request()->input("rolemenu") ? request()->input("rolemenu")  : 0;
+                if ($request->idmenu == 1){
+                    $menuitem->label = $page->page_name;
+                    $menuitem->is_page = 1;
+                    $menuitem->link = "pages/".$page->page_slug;
+                    if (config('menu.use_roles')) {
+                        $menuitem->role_id = request()->input("rolemenu") ? request()->input("rolemenu")  : 0;
+                    }
+                    $menuitem->menu = $request->idmenu;
+                    $menuitem->sort = MenuItems::getNextSortRoot($request->idmenu);
+                    $menuitem->save();
+                } elseif ($request->idmenu == 2){
+                    $menuitem->label = $page->page_name_en;
+                    $menuitem->is_page = 1;
+                    $menuitem->link = "pages/".$page->page_slug_en;
+                    if (config('menu.use_roles')) {
+                        $menuitem->role_id = request()->input("rolemenu") ? request()->input("rolemenu")  : 0;
+                    }
+                    $menuitem->menu = $request->idmenu;
+                    $menuitem->sort = MenuItems::getNextSortRoot($request->idmenu);
+                    $menuitem->save();
+                } else {
+                    $menuitem->label = $page->page_name;
+                    $menuitem->is_page = 1;
+                    $menuitem->link = "pages/".$page->page_slug;
+                    if (config('menu.use_roles')) {
+                        $menuitem->role_id = request()->input("rolemenu") ? request()->input("rolemenu")  : 0;
+                    }
+                    $menuitem->menu = $request->idmenu;
+                    $menuitem->sort = MenuItems::getNextSortRoot($request->idmenu);
+                    $menuitem->save();
                 }
-                $menuitem->menu = $request->idmenu;
-                $menuitem->sort = MenuItems::getNextSortRoot($request->idmenu);
-                $menuitem->save();
+
             }
         } else {
             $menuitem = new MenuItems();

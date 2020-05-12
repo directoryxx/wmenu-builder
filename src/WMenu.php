@@ -27,11 +27,19 @@ class WMenu
 
             $menu = Menus::find(request()->input("menu"));
             $menus = $menuitems->getall(request()->input("menu"));
-            $page = $page->where('publication_status',1)->get();
+            if (request()->input("menu") == 1){
+                $page = $page
+                    ->whereNotNull('page_slug')
+                    ->where('publication_status',1)->get();
+            } else {
+                $page = $page
+                    ->whereNotNull('page_slug_en')
+                    ->where('publication_status',1)->get();
+            }
             //dd($pages);
         
 
-            $data = ['menus' => $menus, 'indmenu' => $menu, 'menulist' => $menulist,'pagemenu' => $page];
+            $data = ['menus' => $menus, 'indmenu' => $menu, 'menulist' => $menulist,'pagemenu' => $page,'idmenu'=> request()->input("menu")];
             //dd($data);
             if( config('menu.use_roles')) {
                 $data['roles'] = DB::table(config('menu.roles_table'))->select([config('menu.roles_pk'),config('menu.roles_title_field')])->get();
