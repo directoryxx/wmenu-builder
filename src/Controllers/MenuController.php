@@ -83,7 +83,7 @@ class MenuController extends Controller
                 if ($request->idmenu == 1){
                     $menuitem->label = $page->page_name;
                     $menuitem->is_page = 1;
-                    $menuitem->link = "pages/".$page->page_slug;
+                    $menuitem->link = "id/pages/".$page->page_slug;
                     if (config('menu.use_roles')) {
                         $menuitem->role_id = request()->input("rolemenu") ? request()->input("rolemenu")  : 0;
                     }
@@ -93,7 +93,7 @@ class MenuController extends Controller
                 } elseif ($request->idmenu == 2){
                     $menuitem->label = $page->page_name_en;
                     $menuitem->is_page = 1;
-                    $menuitem->link = "pages/".$page->page_slug_en;
+                    $menuitem->link = "en/pages/".$page->page_slug_en;
                     if (config('menu.use_roles')) {
                         $menuitem->role_id = request()->input("rolemenu") ? request()->input("rolemenu")  : 0;
                     }
@@ -103,7 +103,7 @@ class MenuController extends Controller
                 } else {
                     $menuitem->label = $page->page_name;
                     $menuitem->is_page = 1;
-                    $menuitem->link = "pages/".$page->page_slug;
+                    $menuitem->link = "id/pages/".$page->page_slug;
                     if (config('menu.use_roles')) {
                         $menuitem->role_id = request()->input("rolemenu") ? request()->input("rolemenu")  : 0;
                     }
